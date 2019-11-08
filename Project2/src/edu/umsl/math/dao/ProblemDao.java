@@ -23,10 +23,9 @@ public class ProblemDao {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://192.168.64.2:3306/mathprobdb", "admin", "");
 			
-			results = connection.prepareStatement(
-					"SELECT pid, content, order_num " + "FROM problem LIMIT ?, ?");
+			results = connection.prepareStatement("SELECT * FROM problem;");
 			
-			probcnt = connection.prepareStatement("SELECT COUNT(pid) FROM problem");
+			probcnt = connection.prepareStatement("SELECT COUNT(pid) FROM problem;");
 		} catch (Exception exception) {
 			exception.printStackTrace();
 			throw new UnavailableException(exception.getMessage());
@@ -77,9 +76,6 @@ public class ProblemDao {
 		int st = 10 * (pg - 1);
 		
 		try {
-			results.setInt(1, st);
-			results.setInt(2, 10);
-			
 			ResultSet resultsRS = results.executeQuery();
 
 			while (resultsRS.next()) {

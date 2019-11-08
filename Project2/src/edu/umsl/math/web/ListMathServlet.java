@@ -19,12 +19,12 @@ import edu.umsl.math.dao.ProblemDao;
 @WebServlet("/listmath")
 public class ListMathServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-       
+
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		ProblemDao probdao = null;
 
 		RequestDispatcher dispatcher = request.getRequestDispatcher("list.jsp");
-		
+
 		int pg = 0;
 		String initpg = request.getParameter("pg");
 
@@ -39,24 +39,24 @@ public class ListMathServlet extends HttpServlet {
 		if (pg == 0) {
 			pg = 1;
 		}
-		
+
 		try {
 			probdao = new ProblemDao();
-			
+
 			int cnt = probdao.getProblemCount();
 
 			int totalpg = (int) Math.ceil(cnt / 10.0);
 
 			request.setAttribute("maxpg", totalpg);
-					
+
 			if (pg < 1) {
 				pg = 1;
 			} else if (pg > totalpg) {
 				pg = totalpg;
 			}
-			
+
 			request.setAttribute("crtpg", pg);
-			
+
 			List<Problem> problist = probdao.getProblemListByPage(pg);
 
 			request.setAttribute("problist", problist);
@@ -64,12 +64,13 @@ public class ListMathServlet extends HttpServlet {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		System.out.println(dispatcher);
-		System.out.println(request);
-		System.out.println(response);
 
 		dispatcher.forward(request, response);
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String content = request.getParameter("content");
+		System.out.println(content);
 	}
 
 }

@@ -6,10 +6,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
-<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-<title>Math Question Bank</title>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>Math Question Bank</title>
 </head>
 <body>
 	<input id="crtpg" type="hidden" value="${crtpg}" />
@@ -19,11 +18,18 @@
 	<div class="container">
 		<div class="d-flex justify-content-center align-items-center">
 			<form action="listmath" method="post">
-				<div class="form-row">
-					<div class="col-10">
-						<textarea class="form-control" placeholder="Give a problem that you are having"></textarea>
+				<div class="row">
+					<div class="d-flex justify-content-center align-items-center">
+						<div class="col-12">
+							<textarea class="form-control" name="content" placeholder="Give a problem that you are having"></textarea>
+						</div>
 					</div>
-					<div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="d-flex justify-content-center align-items-center">
+							<button class="btn" type="submit">Post</button>
+						</div>
 					</div>
 				</div>
 			</form>
@@ -124,8 +130,8 @@
 			</div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" integrity="sha384-xrRywqdh3PHs8keKZN+8zzc5TX0GRTLCcmivcbNJWm2rs5C8PRhcEn3czEjhAO9o" crossorigin="anonymous"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 	<script type="text/javascript" src="js/MathBank.js"></script>
 	<script type="text/javascript">
