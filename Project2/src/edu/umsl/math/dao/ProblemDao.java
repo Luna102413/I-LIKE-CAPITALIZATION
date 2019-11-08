@@ -16,9 +16,9 @@ public class ProblemDao {
 	private Connection connection;
 	private PreparedStatement results;
 	private PreparedStatement probcnt;
+	private PreparedStatement addProblemById;
 
 	public ProblemDao() throws Exception {
-
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			connection = DriverManager.getConnection("jdbc:mysql://192.168.64.2:3306/mathprobdb", "admin", "");
@@ -26,6 +26,8 @@ public class ProblemDao {
 			results = connection.prepareStatement("SELECT * FROM problem;");
 			
 			probcnt = connection.prepareStatement("SELECT COUNT(pid) FROM problem;");
+			
+			addProblemById = connection.prepareStatement("SELECT * FROM category");
 		} catch (Exception exception) {
 			exception.printStackTrace();
 			throw new UnavailableException(exception.getMessage());

@@ -70,7 +70,7 @@ public class ListMathServlet extends HttpServlet {
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String content = request.getParameter("content");
-		System.out.println(content);
+		
 	}
 
 }
